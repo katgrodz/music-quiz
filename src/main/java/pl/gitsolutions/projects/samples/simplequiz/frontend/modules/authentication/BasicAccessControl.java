@@ -1,0 +1,52 @@
+package pl.gitsolutions.projects.samples.simplequiz.frontend.modules.authentication;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import pl.gitsolutions.projects.samples.simplequiz.backend.integration.UserGateway;
+
+/**
+ * Default mock implementation of {@link AccessControl}. This implementation
+ * accepts any string as a password, and considers the user "admin" as the only
+ * administrator.
+ */
+
+public class BasicAccessControl implements AccessControl {
+
+    @Autowired
+    UserGateway userGateway;
+
+//    private UserGateway userGateway;
+
+    @Override
+    public boolean signIn(String username, String password) {
+        if (username == null || username.isEmpty())
+            return false;
+
+        CurrentUser.set(username);
+        return true;
+//        Boolean isLoginCorrect = userGateway.findUser(username,password);
+//
+//        return isLoginCorrect;
+    }
+
+    @Override
+    public boolean isUserSignedIn() {
+        return !CurrentUser.get().isEmpty();
+    }
+
+    @Override
+    public boolean isUserInRole(String role) {
+        if ("admin".equals(role)) {
+            // Only the "admin" user is in the "admin" role
+            return getPrincipalName().equals("admin");
+        }
+
+        // All users are in all non-admin roles
+        return true;
+    }
+
+    @Override
+    public String getPrincipalName() {
+        return CurrentUser.get();
+    }
+
+}

@@ -1,22 +1,31 @@
-# Compiled class file
-*.class
+# ignore all bin directories
+# matches "bin" in any subfolder
+bin/
 
-# Log file
-*.log
+# ignore all target directories
+target/
 
-# BlueJ files
-*.ctxt
+# ignore all files ending with ~
+*~ 
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# ignore eclipse directories and project files
+.settings/
+.project
+.classpath
 
-# Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# OSX
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# InteliJ
+*.iml
+.idea
