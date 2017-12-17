@@ -17,7 +17,6 @@ public class ReadTrackExecutor{
     TrackRepository repository;
 
     public Track getTrackDetails (Long trackId) {
-//        return repository.getTrackDetails(trackId);
         return repository.getTrackById(trackId);
     }
 

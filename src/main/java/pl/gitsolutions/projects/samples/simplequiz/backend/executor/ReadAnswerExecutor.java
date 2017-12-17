@@ -14,13 +14,13 @@ import java.util.List;
 public class ReadAnswerExecutor{
 
     @Autowired
-    AnswerRepository repository;
+    AnswerRepository answerRepository;
 
     public List<Answer> findAllAnswersForUser (Long userId) {
-        return repository.getAllByUserId(userId);
+        return answerRepository.getAllByUserId(userId);
     }
 
     public Answer findAnswerDetails (Long trackId, Long userId) {
-        return repository.getAnswerByTrackIdAndUserId(trackId, userId);
+        return answerRepository.getAnswerByTrackIdAndUserId(trackId, userId);
     }
 }

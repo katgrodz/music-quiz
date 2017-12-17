@@ -28,39 +28,51 @@ public class AnswerServiceImpl implements AnswerService {
     public List<TrackInfoDto> findMyAnswers(Long userId) {
         List<TrackInfoDto> resultList = new ArrayList<>();
 
-        List<Track> tracks = readTrackExecutor.getTracksInQuiz(1L);
-        for(Track track : tracks) {
-            TrackInfoDto singleResult = new TrackInfoDto();
-            Long trackId = track.getId();
-            singleResult.setId(track.getId());
-            singleResult.setQuizId(track.getQuizId());
-            singleResult.setTaskId(track.getTaskId());
-            singleResult.setTrackId(track.getId());
-            singleResult.setTitle(track.getTrackTitle());
-            singleResult.setArtist(track.getTrackArtist());
-            singleResult.setAlbum(track.getAlbumTitle());
-            singleResult.setYear(track.getYear());
-            singleResult.setTipOne(track.getTipOne());
-            singleResult.setTipTwo(track.getTipTwo());
-            singleResult.setLyricsStart(track.getLyricsStart());
-            singleResult.setTrackUrl(track.getTrackUrl());
-            singleResult.setWikiUrl(track.getWikiUrl());
+        List<Answer> answerList = readAnswerExecutor.findAllAnswersForUser(userId);
 
-            Answer answerDetails = readAnswerExecutor.findAnswerDetails(trackId, 1L);
-            if (answerDetails != null) {
-                singleResult.setAnsweredArtist(answerDetails.getAnsweredArtist());
-                singleResult.setAnsweredTitle(answerDetails.getAnsweredTitle());
-                singleResult.setAnswerTime(answerDetails.getAnswerTime());
-            }
+        for (Answer answer : answerList) {
+            TrackInfoDto singleResult = new TrackInfoDto();
+
+            singleResult.setAnsweredArtist(answer.getAnsweredArtist());
+            singleResult.setAnsweredTitle(answer.getAnsweredTitle());
+            singleResult.setAnswerTime(answer.getAnswerTime());
+            singleResult.setId(answer.getId());
+            singleResult.setTrackId(answer.getTrackId());
+
+            Long trackId = answer.getTrackId();
+
+            Track trackDetails = readTrackExecutor.getTrackDetails(trackId);
+
+            singleResult.setQuizId(trackDetails.getQuizId());
+            singleResult.setTaskId(trackDetails.getTaskId());
+            singleResult.setTitle(trackDetails.getTrackTitle());
+            singleResult.setArtist(trackDetails.getTrackArtist());
+            singleResult.setAlbum(trackDetails.getAlbumTitle());
+            singleResult.setYear(trackDetails.getYear());
+            singleResult.setTipOne(trackDetails.getTipOne());
+            singleResult.setTipTwo(trackDetails.getTipTwo());
+            singleResult.setLyricsStart(trackDetails.getLyricsStart());
+            singleResult.setTrackUrl(trackDetails.getTrackUrl());
+            singleResult.setWikiUrl(trackDetails.getWikiUrl());
 
             resultList.add(singleResult);
-        }
 
+        }
         return resultList;
     }
 
     @Override
     public List<TrackInfoDto> findMyLastAnswers(Long userId, Long quizId) {
-        return null;
+        List<TrackInfoDto> resultList = new ArrayList<>();
+
+        List<TrackInfoDto> allAnswers = findMyAnswers(userId);
+
+        for (TrackInfoDto answer : allAnswers) {
+            if (answer.getQuizId() == quizId) {
+                resultList.add(answer);
+            }
+        }
+
+        return resultList;
     }
 }
