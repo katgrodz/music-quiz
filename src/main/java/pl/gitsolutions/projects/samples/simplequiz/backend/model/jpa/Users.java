@@ -13,41 +13,41 @@ import javax.persistence.Table;
 /**
  * Created by katgr on 19.11.2017.
  */
-@Table(name = "USER")
-@Entity(name = "User")
+@Table(name = "USERS")
+@Entity(name = "Users")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BaseEntity {
+public class Users extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "USER_ID", nullable = false)
-    private Long id;
+    private Long userId;
 
     @Column(name = "USER_NAME")
     private String userName;
 
-    @Column(name = "PASSWORD")
-    private String password;
+    @Column(name = "USER_PASS")
+    private String pass;
 
     @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "ROLE")
-    private String role;
+    @Column(name = "USER_ROLE")
+    private String userRole;
 
-    public User(String userName, String password, String emai) {
+    public Users(String userName, String pass, String emai) {
         this.userName = userName;
-        this.password = password;
+        this.pass = pass;
         this.email = email;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -58,12 +58,12 @@ public class User extends BaseEntity {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getEmail() {

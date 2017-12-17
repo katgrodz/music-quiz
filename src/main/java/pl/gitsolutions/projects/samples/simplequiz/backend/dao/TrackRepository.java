@@ -10,7 +10,8 @@ import java.util.List;
 /**
  * Created by katgr on 19.11.2017.
  */
-public interface TrackRepository extends JpaRepository<Track,String>, TrackRepositoryCustom {
+@Repository
+public interface TrackRepository extends JpaRepository<Track,String> {
 
     Track getTrackById(Long id);
 

@@ -67,37 +67,6 @@ public class ReadFromFile {
             }
         }
 
-//        for (int i=numberOfTracks+3; i< numberOfTracks+3+3*numberOfTasks; i+=3){
-//            tabPlacement = fromFile.get(i).indexOf(0x009);
-//            tempTask.setTaskDescription(fromFile.get(i).substring(tabPlacement+1));
-//
-//            tabPlacement = fromFile.get(i+1).indexOf(0x009);
-//            firstTrackInTask = Integer.valueOf(fromFile.get(i+1).substring(tabPlacement+1));
-//
-//            tabPlacement = fromFile.get(i+2).indexOf(0x009);
-//            numberOfTracksInTask = Integer.valueOf(fromFile.get(i+2).substring(tabPlacement+1));
-//
-//            List<Track> listOfTracksInTask = new ArrayList<Track>();
-//
-//            for (int j=firstTrackInTask-1; j<firstTrackInTask+numberOfTracksInTask-1; j++){
-//
-//                listOfTracksInTask.add(new Track(listOfTracks.get(j).getTitle(),listOfTracks.get(j).getArtist(),
-//                        listOfTracks.get(j).getAlbum(), listOfTracks.get(j).getYear(),
-//                        listOfTracks.get(j).getTipOne(), listOfTracks.get(j).getTipTwo(), listOfTracks.get(j).getLyricsStart(),
-//                        listOfTracks.get(j).getTrackUrl(),listOfTracks.get(j).getWikiUrl(),listOfTracks.get(j).getQuizNr(),
-//                        listOfTracks.get(j).getTaskNr(),listOfTracks.get(j).getTrackNr()));
-//
-//            }
-//
-//
-//            listOfTasks.add(new Task(listOfTracksInTask,tempTask.getTaskDescription()));
-//
-//        }
-//
-//        tempQuiz = new Quiz(listOfTasks,"Pierwszy konkurs Muzyczny");
-
-
-
         return listOfTracks;
 
 

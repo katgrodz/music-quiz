@@ -3,7 +3,7 @@ package pl.gitsolutions.projects.samples.simplequiz.backend.executor;
 import org.springframework.stereotype.Component;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dao.UserRepository;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
-import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.User;
+import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Users;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class ReadUserExecutor {
     UserRepository repository;
 
-    public User findUser (String userName, String password) {
+    public Users findUser (String userName, String password) {
 //        return repository.getUserByUserNameAndPasswordAndActiveFlagTrueAndStatusTrue(userName,password);
         return null;
     }
