@@ -73,7 +73,60 @@ public class TrackRepositoryTest {
 
         Assert.assertEquals(0,resultList.size());
 
+    }
 
+    @Test
+    public void updateTrackInfo(){
+
+        String newTitle = "new title";
+        String newArtist = "new artist";
+        String newAlbum = "new album";
+        int newYear = 1999;
+
+        repository.updateTrackInfo(newTitle, newArtist, newAlbum, newYear,110L);
+
+        Track updatedTrack = repository.getTrackById(110L);
+
+        Assert.assertEquals(newTitle, updatedTrack.getTrackTitle());
+        Assert.assertEquals(newArtist, updatedTrack.getTrackArtist());
+        Assert.assertEquals(newAlbum, updatedTrack.getAlbumTitle());
+        Assert.assertEquals(newYear, updatedTrack.getYear());
+        Assert.assertEquals("First Tip", updatedTrack.getTipOne());
+        Assert.assertEquals("track url", updatedTrack.getTrackUrl());
+    }
+
+    @Test
+    public void updateTrackUrls(){
+
+        String newTrackUrl = "new track url";
+        String newWikiUrl = "new wiki url";
+
+        repository.updateTrackUrls(newTrackUrl, newWikiUrl, 110L);
+
+        Track updatedTrack = repository.getTrackById(110L);
+
+        Assert.assertEquals("Rainbow in the Dark", updatedTrack.getTrackTitle());
+        Assert.assertEquals(newTrackUrl, updatedTrack.getTrackUrl());
+        Assert.assertEquals(newWikiUrl, updatedTrack.getWikiUrl());
+        Assert.assertEquals("First Tip", updatedTrack.getTipOne());
+    }
+
+    @Test
+    public void updateTrackTips(){
+
+        String newLyricsStart = "00:20:001";
+        String newTipOne = "new track url";
+        String newTipTwo = "new wiki url";
+
+        repository.updateTrackTips(newLyricsStart,newTipOne,newTipTwo,110L);
+
+        Track updatedTrack = repository.getTrackById(110L);
+
+        Assert.assertEquals("Rainbow in the Dark", updatedTrack.getTrackTitle());
+        Assert.assertEquals("track url", updatedTrack.getTrackUrl());
+        Assert.assertEquals(newLyricsStart, updatedTrack.getLyricsStart());
+        Assert.assertEquals(newTipOne, updatedTrack.getTipOne());
+        Assert.assertEquals(newTipTwo, updatedTrack.getTipTwo());
     }
 
 }

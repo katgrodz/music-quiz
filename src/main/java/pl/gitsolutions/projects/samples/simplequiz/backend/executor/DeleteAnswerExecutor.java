@@ -6,15 +6,16 @@ import pl.gitsolutions.projects.samples.simplequiz.backend.dao.AnswerRepository;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 
 /**
- * Created by katgr on 19.11.2017.
+ * Created by katgr on 20.12.2017.
  */
 @Component
-public class CreateAnswerExecutor{
+public class DeleteAnswerExecutor {
 
     @Autowired
-    AnswerRepository repository;
+    AnswerRepository answerRepository;
 
-    public void saveAnswer(Answer answer) {
-        repository.save(answer);
+    public void deleteAnswer(Answer answer) {
+        answerRepository.delete(answer);
     }
+
 }

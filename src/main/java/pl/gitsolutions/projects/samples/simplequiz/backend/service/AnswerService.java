@@ -14,4 +14,10 @@ public interface AnswerService {
 
     List<TrackInfoDto> findMyLastAnswers(Long userId, Long quizId);
 
+    Answer findAnswerDetails(Long trackId, Long userId);
+
+    void saveAnswer(Answer answer);
+
+    void deleteAnswer(Answer answer);
+
 }
