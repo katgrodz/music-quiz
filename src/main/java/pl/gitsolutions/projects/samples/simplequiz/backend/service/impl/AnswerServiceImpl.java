@@ -3,12 +3,16 @@ package pl.gitsolutions.projects.samples.simplequiz.backend.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
+import pl.gitsolutions.projects.samples.simplequiz.backend.executor.CreateAnswerExecutor;
+import pl.gitsolutions.projects.samples.simplequiz.backend.executor.DeleteAnswerExecutor;
 import pl.gitsolutions.projects.samples.simplequiz.backend.executor.ReadAnswerExecutor;
 import pl.gitsolutions.projects.samples.simplequiz.backend.executor.ReadTrackExecutor;
+import pl.gitsolutions.projects.samples.simplequiz.backend.executor.UpdateAnswerExecutor;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Track;
 import pl.gitsolutions.projects.samples.simplequiz.backend.service.AnswerService;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +20,7 @@ import java.util.List;
  * Created by katgr on 19.11.2017.
  */
 @Service
+@Transactional
 public class AnswerServiceImpl implements AnswerService {
 
     @Autowired
@@ -23,6 +28,15 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Autowired
     ReadTrackExecutor readTrackExecutor;
+
+    @Autowired
+    CreateAnswerExecutor createAnswerExecutor;
+
+    @Autowired
+    UpdateAnswerExecutor updateAnswerExecutor;
+
+    @Autowired
+    DeleteAnswerExecutor deleteAnswerExecutor;
 
     @Override
     public List<TrackInfoDto> findMyAnswers(Long userId) {
@@ -74,5 +88,31 @@ public class AnswerServiceImpl implements AnswerService {
         }
 
         return resultList;
+    }
+
+    @Override
+    @Transactional
+    public Answer findAnswerDetails(Long trackId, Long userId) {
+        Answer result = readAnswerExecutor.findAnswerDetails(trackId, userId);
+        return result;
+    }
+
+    @Override
+    public void saveAnswer(Answer answer) {
+
+        Answer savedAnswer = readAnswerExecutor.findAnswerDetails(answer.getTrackId(), answer.getUserId());
+
+        if(savedAnswer.getId() != null) {
+            answer.setId(savedAnswer.getId());
+            updateAnswerExecutor.updateAnswer(answer);
+        } else {
+            createAnswerExecutor.saveAnswer(answer);
+        }
+    }
+
+
+    @Override
+    public void deleteAnswer(Answer answer) {
+        deleteAnswerExecutor.deleteAnswer(answer);
     }
 }

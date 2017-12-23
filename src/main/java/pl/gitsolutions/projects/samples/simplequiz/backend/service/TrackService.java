@@ -16,4 +16,6 @@ public interface TrackService {
     Track trackDetails(Long trackId);
 
     List<Track> tracksInTask(Long quizId, Long taskId);
+
+    void updateTrack(Track track);
 }

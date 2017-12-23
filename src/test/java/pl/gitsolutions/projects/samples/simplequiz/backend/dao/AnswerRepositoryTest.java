@@ -69,4 +69,26 @@ public class AnswerRepositoryTest {
         List<Answer> result = repository.getAllByUserId(4L);
         Assert.assertEquals(0, result.size());
     }
+
+    @Test
+    public void updateAnswer(){
+        Answer oldAnswer = repository.getAnswerByTrackIdAndUserId(101L, 1L);
+        Assert.assertEquals("title", oldAnswer.getAnsweredTitle());
+        Assert.assertEquals("artist", oldAnswer.getAnsweredArtist());
+        Assert.assertEquals("00:24:124", oldAnswer.getAnswerTime());
+
+        Answer newAnswer = new Answer();
+        newAnswer.setAnsweredTitle("new title");
+        newAnswer.setAnsweredArtist("new artist");
+        newAnswer.setAnswerTime("00:00:100");
+        newAnswer.setId(oldAnswer.getId());
+
+        repository.updateAnswerById(newAnswer.getAnsweredArtist(), newAnswer.getAnsweredTitle(), newAnswer.getAnswerTime(), newAnswer.getId());
+
+        Answer updatedAnswer = repository.getAnswerByTrackIdAndUserId(101L, 1L);
+        Assert.assertEquals(newAnswer.getAnsweredArtist(),updatedAnswer.getAnsweredArtist());
+        Assert.assertEquals(newAnswer.getAnsweredTitle(),updatedAnswer.getAnsweredTitle());
+        Assert.assertEquals(newAnswer.getAnswerTime(),updatedAnswer.getAnswerTime());
+
+    }
 }

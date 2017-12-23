@@ -10,6 +10,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.gitsolutions.projects.samples.simplequiz.backend.SimpleQuizTestContext;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
+import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 
 import java.util.List;
 
@@ -39,5 +40,27 @@ public class AnswerServiceTest {
         int expectedSize = 5;
 
         Assert.assertEquals(expectedSize, result.size());
+    }
+
+    @Test
+    public void saveAnswer(){
+
+        Answer answer = answerService.findAnswerDetails(109L,1L);
+
+        Assert.assertEquals("title",answer.getAnsweredTitle());
+
+        Answer newAnswer = new Answer();
+        newAnswer.setAnsweredTitle("new title");
+        newAnswer.setAnsweredArtist("new artist");
+        newAnswer.setAnswerTime("new time");
+        newAnswer.setTrackId(109L);
+        newAnswer.setUserId(1L);
+
+        answerService.saveAnswer(newAnswer);
+
+        Answer updatedAnswer = answerService.findAnswerDetails(109L,1L);
+
+        Assert.assertEquals("new title",updatedAnswer.getAnsweredTitle());
+
     }
 }
