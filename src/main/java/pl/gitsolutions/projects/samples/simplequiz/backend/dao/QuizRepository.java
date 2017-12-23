@@ -12,7 +12,5 @@ import java.util.List;
 @Repository
 public interface QuizRepository extends JpaRepository<Quiz, String> {
 
-    List<Quiz> getAll();
-
     Quiz getQuizById(Long quizId);
 }

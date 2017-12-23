@@ -15,7 +15,6 @@ import java.util.List;
  * Created by katgr on 19.11.2017.
  */
 @Repository
-@Transactional
 public interface AnswerRepository extends JpaRepository<Answer,String> {
 
     List<Answer> getAllByTrackId(Long trackId);

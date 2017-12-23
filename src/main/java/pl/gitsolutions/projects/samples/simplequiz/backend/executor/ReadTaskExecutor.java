@@ -25,7 +25,7 @@ public class ReadTaskExecutor{
     }
 
     public List<Task> getAllTasks(){
-        return taskRepository.getAll();
+        return taskRepository.findAll();
     }
 
 }

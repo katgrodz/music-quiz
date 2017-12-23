@@ -21,7 +21,7 @@ public class ReadQuizExecutor{
     }
 
     public List<Quiz> getAllQuizes() {
-        return quizRepository.getAll();
+        return quizRepository.findAll();
     }
 
 }
