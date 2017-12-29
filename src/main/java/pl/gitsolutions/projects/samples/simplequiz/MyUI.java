@@ -1,5 +1,6 @@
 package pl.gitsolutions.projects.samples.simplequiz;
 
+import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.Responsive;
@@ -8,6 +9,9 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
+import org.springframework.beans.factory.annotation.Autowired;
+import pl.gitsolutions.projects.samples.simplequiz.backend.integration.AnswerGateway;
+import pl.gitsolutions.projects.samples.simplequiz.backend.integration.TrackGateway;
 import pl.gitsolutions.projects.samples.simplequiz.frontend.modules.MainScreen;
 import pl.gitsolutions.projects.samples.simplequiz.frontend.modules.authentication.AccessControl;
 import pl.gitsolutions.projects.samples.simplequiz.frontend.modules.authentication.BasicAccessControl;
@@ -21,9 +25,17 @@ import javax.servlet.annotation.WebServlet;
  */
 @SpringUI
 @Theme("mytheme")
+@PreserveOnRefresh
 public class MyUI extends UI {
 
     private AccessControl accessControl = new BasicAccessControl();
+
+    @Autowired
+    TrackGateway trackGateway;
+
+    @Autowired
+    AnswerGateway answerGateway;
+
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -44,7 +56,7 @@ public class MyUI extends UI {
 
     protected void showMainView() {
         addStyleName(ValoTheme.UI_WITH_MENU);
-        setContent(new MainScreen(MyUI.this));
+        setContent(new MainScreen(MyUI.this, trackGateway, answerGateway));
 //        getNavigator().navigateTo(getNavigator().getState());
         getNavigator().navigateTo(StartView.VIEW_NAME);
     }
