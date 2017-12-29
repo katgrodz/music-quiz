@@ -5,7 +5,11 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
+import org.springframework.beans.factory.annotation.Autowired;
 import pl.gitsolutions.projects.samples.simplequiz.MyUI;
+import pl.gitsolutions.projects.samples.simplequiz.backend.integration.AnswerGateway;
+import pl.gitsolutions.projects.samples.simplequiz.backend.integration.TrackGateway;
+import pl.gitsolutions.projects.samples.simplequiz.backend.service.AnswerService;
 import pl.gitsolutions.projects.samples.simplequiz.frontend.modules.about.AboutView;
 import pl.gitsolutions.projects.samples.simplequiz.frontend.modules.answers.AnswerView;
 import pl.gitsolutions.projects.samples.simplequiz.frontend.modules.start.StartView;
@@ -18,7 +22,7 @@ public class MainScreen extends HorizontalLayout {
 
     private Menu menu;
 
-    public MainScreen(MyUI ui) {
+    public MainScreen(MyUI ui, TrackGateway trackGateway, AnswerGateway answerGateway) {
 
         setSpacing(false);
         setStyleName("main-screen");
@@ -30,10 +34,10 @@ public class MainScreen extends HorizontalLayout {
         final Navigator navigator = new Navigator(ui, viewContainer);
         navigator.setErrorView(ErrorView.class);
         menu = new Menu(navigator);
-        menu.addView(new StartView(), StartView.VIEW_NAME, "Start", VaadinIcons.STAR_O);
-        menu.addView(new TaskView(), TaskView.VIEW_NAME, "Tasks",VaadinIcons.MUSIC);
+        menu.addView(new StartView(ui), StartView.VIEW_NAME, "Start", VaadinIcons.STAR_O);
+        menu.addView(new TaskView(trackGateway, answerGateway), TaskView.VIEW_NAME, "Tasks",VaadinIcons.MUSIC);
 //        TODO switch to inactive and set active when answered all questions
-        menu.addView(new AnswerView(), AnswerView.VIEW_NAME,"Answers", VaadinIcons.EDIT);
+        menu.addView(new AnswerView(answerGateway), AnswerView.VIEW_NAME,"Answers", VaadinIcons.EDIT);
 //        menu.addInactiveView(new AnswerView(), AnswerView.VIEW_NAME,AnswerView.VIEW_NAME, VaadinIcons.EDIT);
         menu.addView(new AboutView(), AboutView.VIEW_NAME, "About",VaadinIcons.INFO_CIRCLE);
 
@@ -54,6 +58,9 @@ public class MainScreen extends HorizontalLayout {
         @Override
         public void afterViewChange(ViewChangeEvent event) {
             menu.setActiveView(event.getViewName());
+            if (event.getViewName() == "answerView") {
+
+            }
         }
 
     };

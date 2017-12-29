@@ -43,18 +43,4 @@ public class AnswerForm extends AnswerFormDesign {
                 + "').scrollTop = 0;";
         Page.getCurrent().getJavaScript().execute(scrollScript);
     }
-
-//    public void editProduct(Product product) {
-//        if (product == null) {
-//            product = new Product();
-//        }
-//        currentProduct = product;
-//        binder.readBean(product);
-//
-//        // Scroll to the top
-//        // As this is not a Panel, using JavaScript
-//        String scrollScript = "window.document.getElementById('" + getId()
-//                + "').scrollTop = 0;";
-//        Page.getCurrent().getJavaScript().execute(scrollScript);
-//    }
 }

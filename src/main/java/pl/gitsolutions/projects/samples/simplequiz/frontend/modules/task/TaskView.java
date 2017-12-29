@@ -4,7 +4,9 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.Resource;
+import com.vaadin.shared.communication.SharedState;
 import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.shared.ui.audio.AudioState;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Audio;
 import com.vaadin.ui.Button;
@@ -16,7 +18,9 @@ import com.vaadin.ui.VerticalLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dao.TrackRepository;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
+import pl.gitsolutions.projects.samples.simplequiz.backend.integration.AnswerGateway;
 import pl.gitsolutions.projects.samples.simplequiz.backend.integration.TrackGateway;
+import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Track;
 
 import java.util.List;
@@ -28,29 +32,32 @@ public class TaskView extends VerticalLayout implements View {
 
     public static final String VIEW_NAME = "taskView";
 
+    private Integer currentTrack;
     private String taskDescription;
     private String trackUrl = "";
 
-    private TextField artistField;
-    private TextField titleField;
+    private Button tipFirstBtn = new Button("first letters");
+    private Label tipFirstText = new Label();
+    private Button tipSecondBtn = new Button("different tip");
+    private Label tipSecondText = new Label();
+    private TextField artistField = new TextField();
+    private TextField titleField = new TextField();
 
-    @Autowired
-    TaskViewLogic viewLogic;
 
     private TaskDataProvider taskDataProvider = new TaskDataProvider();
 
     private TrackInfoDto trackInfo = new TrackInfoDto();
 
-    public TaskView() {
+    public TaskView(TrackGateway trackGateway, AnswerGateway answerGateway) {
 
+        if (currentTrack == null) {
+            currentTrack = 0;
+        }
 
-
-//        List<Track> tracks = taskDataProvider.tracksInQuiz(1);
+        List<Track> tracks = trackGateway.tracksInQuiz(1L);
 
         CustomLayout taskContent = new CustomLayout("taskView");
         taskContent.setStyleName("about-content");
-
-//        taskCount = dataProvider.getContest().getTaskList().size();
 
         taskContent.addComponent(
                 new Label(VaadinIcons.INFO_CIRCLE.getHtml()
@@ -60,16 +67,18 @@ public class TaskView extends VerticalLayout implements View {
         setMargin(false);
 
         Audio sample = new Audio();
+        trackUrl = tracks.get(currentTrack).getTrackUrl();
         final Resource audioResource = new ExternalResource(trackUrl);
         sample.setSource(audioResource);
         sample.setHtmlContentAllowed(true);
+        sample.setAutoplay(true);
         sample.setAltText("Can't play media");
         taskContent.addComponent(sample,"task-player");
 
         taskContent.addComponent(new Label("Artist"), "task-artist-label");
-        taskContent.addComponent(artistField = new TextField(),"task-artist-field");
+        taskContent.addComponent(artistField,"task-artist-field");
         taskContent.addComponent(new Label("Title"), "task-title-label");
-        taskContent.addComponent(titleField = new TextField(),"task-title-field");
+        taskContent.addComponent(titleField,"task-title-field");
         taskContent.addComponent(new Label("Answer"), "task-answer");
         Button sendBtn = new Button("Save");
         taskContent.addComponent(sendBtn,"task-button1");
@@ -82,16 +91,12 @@ public class TaskView extends VerticalLayout implements View {
         taskContent.addComponent(navigationPanel,"task-button2");
 
         HorizontalLayout tipOnePanel = new HorizontalLayout();
-        Button tipFirstBtn = new Button("first letters");
-        Label tipFirstText = new Label();
         tipOnePanel.addComponent(tipFirstBtn);
         tipOnePanel.addComponent(tipFirstText);
         taskContent.addComponent(tipOnePanel,"task-button3");
 
         HorizontalLayout tipTwoPanel = new HorizontalLayout();
 
-        Button tipSecondBtn = new Button("different tip");
-        Label tipSecondText = new Label();
         tipSecondBtn.setVisible(false);
         tipSecondBtn.setDescription("ex. year, similarity, etc.");
         tipTwoPanel.addComponent(tipSecondBtn);
@@ -108,30 +113,94 @@ public class TaskView extends VerticalLayout implements View {
         sendBtn.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
+                Answer answer = new Answer();
 
+                answer.setAnsweredTitle(titleField.getValue());
+                answer.setAnsweredArtist(artistField.getValue());
+                answer.setAnswerTime("");
+                answer.setTrackId(tracks.get(currentTrack).getId());
+                answer.setUserId(1L);
+
+                answerGateway.saveAnswer(answer);
             }
         });
 
-//        sendBtn.addClickListener(clickEvent -> viewLogic.saveAnswer(trackInfo));
+        prevBtn.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                if (currentTrack == 0) {
+                    currentTrack = currentTrack;
+                } else {
+                    currentTrack = currentTrack - 1;
 
-        prevBtn.addClickListener(clickEvent -> viewLogic.previousTrack());
+                    trackUrl = tracks.get(currentTrack).getTrackUrl();
+                    final Resource audioResource = new ExternalResource(trackUrl);
+                    sample.setSource(audioResource);
+                    sample.setHtmlContentAllowed(true);
+                    sample.setAltText("Can't play media");
+                    taskContent.addComponent(sample,"task-player");
 
-//        nextBtn.addClickListener(clickEvent -> viewLogic.nextTrack());
+                    tipFirstText.setValue(tracks.get(currentTrack).getTipOne());
+                    tipSecondText.setValue(tracks.get(currentTrack).getTipTwo());
+
+                    clearTips();
+                    clearForm();
+                }
+            }
+        });
 
         nextBtn.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-//                Track nextTrack = viewLogic.nextTrack();
-//
-//                final Resource audioResource = new ExternalResource(nextTrack.getTrackUrl());
-//                sample.setSource(audioResource);
-//                tipFirstText.setValue(nextTrack.getTipOne());
-//                tipSecondText.setValue(nextTrack.getTipTwo());
+
+                if (currentTrack == tracks.size() - 1) {
+                    currentTrack = currentTrack;
+                } else {
+                    taskContent.removeComponent("task-player");
+                    currentTrack = currentTrack + 1;
+
+                    trackUrl = tracks.get(currentTrack).getTrackUrl();
+                    final Resource audioResource = new ExternalResource(trackUrl);
+                    sample.setSource(audioResource);
+                    sample.setHtmlContentAllowed(true);
+                    sample.setAltText("Can't play media");
+                    taskContent.addComponent(sample,"task-player");
+
+
+                    tipFirstText.setValue(tracks.get(currentTrack).getTipOne());
+                    tipSecondText.setValue(tracks.get(currentTrack).getTipTwo());
+
+                    clearTips();
+                    clearForm();
+                }
             }
         });
 
-        tipFirstBtn.addClickListener(clickEvent -> viewLogic.getFirstTip());
+        tipFirstBtn.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                tipFirstText.setValue(tracks.get(currentTrack).getTipOne());
+                tipSecondBtn.setVisible(true);
+            }
+        });
 
-        tipSecondBtn.addClickListener(clickEvent -> viewLogic.getSecondTip());
+        tipSecondBtn.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                tipSecondText.setValue(tracks.get(currentTrack).getTipTwo());
+            }
+        });
+    }
+    private void clearTips(){
+        tipSecondBtn.setVisible(false);
+        tipSecondText.setValue("");
+        tipSecondText.setVisible(false);
+
+        tipFirstText.setValue("");
+    }
+
+    private void clearForm(){
+        titleField.setValue("");
+        artistField.setValue("");
     }
 }

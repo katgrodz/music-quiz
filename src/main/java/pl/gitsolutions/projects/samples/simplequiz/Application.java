@@ -2,8 +2,10 @@ package pl.gitsolutions.projects.samples.simplequiz;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dao.TrackRepository;
 import pl.gitsolutions.projects.samples.simplequiz.backend.integration.AnswerGateway;
 import pl.gitsolutions.projects.samples.simplequiz.backend.integration.TrackGateway;
@@ -17,6 +19,8 @@ import java.util.List;
  * Created by katgr on 12.11.2017.
  */
 @SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan
 public class Application {
 
     List<Track> trackList;

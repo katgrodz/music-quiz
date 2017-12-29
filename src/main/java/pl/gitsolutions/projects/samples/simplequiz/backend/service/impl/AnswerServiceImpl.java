@@ -49,7 +49,7 @@ public class AnswerServiceImpl implements AnswerService {
 
             singleResult.setAnsweredArtist(answer.getAnsweredArtist());
             singleResult.setAnsweredTitle(answer.getAnsweredTitle());
-            singleResult.setAnswerTime(answer.getAnswerTime());
+//            singleResult.setAnswerTime(answer.getAnswerTime());
             singleResult.setId(answer.getId());
             singleResult.setTrackId(answer.getTrackId());
 
@@ -57,17 +57,17 @@ public class AnswerServiceImpl implements AnswerService {
 
             Track trackDetails = readTrackExecutor.getTrackDetails(trackId);
 
-            singleResult.setQuizId(trackDetails.getQuizId());
+//            singleResult.setQuizId(trackDetails.getQuizId());
             singleResult.setTaskId(trackDetails.getTaskId());
             singleResult.setTitle(trackDetails.getTrackTitle());
             singleResult.setArtist(trackDetails.getTrackArtist());
             singleResult.setAlbum(trackDetails.getAlbumTitle());
             singleResult.setYear(trackDetails.getYear());
-            singleResult.setTipOne(trackDetails.getTipOne());
-            singleResult.setTipTwo(trackDetails.getTipTwo());
-            singleResult.setLyricsStart(trackDetails.getLyricsStart());
-            singleResult.setTrackUrl(trackDetails.getTrackUrl());
-            singleResult.setWikiUrl(trackDetails.getWikiUrl());
+//            singleResult.setTipOne(trackDetails.getTipOne());
+//            singleResult.setTipTwo(trackDetails.getTipTwo());
+//            singleResult.setLyricsStart(trackDetails.getLyricsStart());
+//            singleResult.setTrackUrl(trackDetails.getTrackUrl());
+//            singleResult.setWikiUrl(trackDetails.getWikiUrl());
 
             resultList.add(singleResult);
 
@@ -102,7 +102,7 @@ public class AnswerServiceImpl implements AnswerService {
 
         Answer savedAnswer = readAnswerExecutor.findAnswerDetails(answer.getTrackId(), answer.getUserId());
 
-        if(savedAnswer.getId() != null) {
+        if(savedAnswer != null) {
             answer.setId(savedAnswer.getId());
             updateAnswerExecutor.updateAnswer(answer);
         } else {
