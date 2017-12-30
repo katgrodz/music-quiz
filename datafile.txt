@@ -14,8 +14,8 @@
 13	1	3	4	Highway To Hell	ACDC	albumName	1990	firstTip	secondTip	1023	http://theofeel.pl/audio/013.mp3	url2
 14	1	3	5	Mydło	Fasolki	albumName	1990	firstTip	secondTip	1023	http://theofeel.pl/audio/013.mp3	url2
 --------------------------------------
-Zadanie 1	polecenie zadania 1
-Zadanie 2	polecenie zadania 2
-Zadanie 3	polecenie zadania 3
+1	1	polecenie zadania 1
+2	1	polecenie zadania 2
+3	1	polecenie zadania 3
 --------------------------------------
-Quiz	informacje o quizie
+1	informacje o quizie
