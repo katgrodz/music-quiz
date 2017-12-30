@@ -52,7 +52,7 @@ public class AnswerServiceTest {
         Answer newAnswer = new Answer();
         newAnswer.setAnsweredTitle("new title");
         newAnswer.setAnsweredArtist("new artist");
-        newAnswer.setAnswerTime("new time");
+//        newAnswer.setAnswerTime("new time");
         newAnswer.setTrackId(109L);
         newAnswer.setUserId(1L);
 

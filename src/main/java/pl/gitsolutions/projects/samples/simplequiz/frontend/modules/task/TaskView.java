@@ -43,9 +43,6 @@ public class TaskView extends VerticalLayout implements View {
     private TextField artistField = new TextField();
     private TextField titleField = new TextField();
 
-
-    private TaskDataProvider taskDataProvider = new TaskDataProvider();
-
     private TrackInfoDto trackInfo = new TrackInfoDto();
 
     public TaskView(TrackGateway trackGateway, AnswerGateway answerGateway) {

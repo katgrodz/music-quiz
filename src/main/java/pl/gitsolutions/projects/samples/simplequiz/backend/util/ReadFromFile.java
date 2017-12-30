@@ -56,7 +56,7 @@ public class ReadFromFile {
             tempTrack.setYear(Integer.valueOf(singleLine.substring(tabList.get(6)+1,tabList.get(7))));
             tempTrack.setTipOne(singleLine.substring(tabList.get(7)+1,tabList.get(8)));
             tempTrack.setTipTwo(singleLine.substring(tabList.get(8)+1,tabList.get(9)));
-            tempTrack.setLyricsStart(singleLine.substring(tabList.get(9)+1,tabList.get(10)));
+//            tempTrack.setLyricsStart(singleLine.substring(tabList.get(9)+1,tabList.get(10)));
             tempTrack.setTrackUrl(singleLine.substring(tabList.get(10)+1,tabList.get(11)));
             tempTrack.setWikiUrl(singleLine.substring(tabList.get(11)+1));
 
