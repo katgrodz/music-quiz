@@ -26,4 +26,20 @@ public class Quiz extends BaseEntity {
 
     @Column(name = "QUIZ_DESCRIPTION")
     private String quizDescription;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getQuizDescription() {
+        return quizDescription;
+    }
+
+    public void setQuizDescription(String quizDescription) {
+        this.quizDescription = quizDescription;
+    }
 }
