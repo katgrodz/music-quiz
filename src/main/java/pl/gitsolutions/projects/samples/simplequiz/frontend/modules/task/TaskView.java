@@ -33,7 +33,7 @@ public class TaskView extends VerticalLayout implements View {
     public static final String VIEW_NAME = "taskView";
 
     private Integer currentTrack;
-    private String taskDescription;
+    private String taskDescription = "  Quess the song and artist.";
     private String trackUrl = "";
 
     private Button tipFirstBtn = new Button("first letters");
@@ -42,6 +42,10 @@ public class TaskView extends VerticalLayout implements View {
     private Label tipSecondText = new Label();
     private TextField artistField = new TextField();
     private TextField titleField = new TextField();
+    private Label countLbl = new Label();
+    private Button sendBtn = new Button("Save");
+    private Button prevBtn = new Button("prev");
+    private Button nextBtn = new Button("next");
 
     private TrackInfoDto trackInfo = new TrackInfoDto();
 
@@ -52,6 +56,7 @@ public class TaskView extends VerticalLayout implements View {
         }
 
         List<Track> tracks = trackGateway.tracksInQuiz(1L);
+        int tracksCount = tracks.size();
 
         CustomLayout taskContent = new CustomLayout("taskView");
         taskContent.setStyleName("about-content");
@@ -62,6 +67,9 @@ public class TaskView extends VerticalLayout implements View {
 
         setSizeFull();
         setMargin(false);
+
+        countLbl.setValue("1 /  " + tracksCount);
+        taskContent.addComponent(countLbl,"task-counter");
 
         Audio sample = new Audio();
         trackUrl = tracks.get(currentTrack).getTrackUrl();
@@ -77,12 +85,10 @@ public class TaskView extends VerticalLayout implements View {
         taskContent.addComponent(new Label("Title"), "task-title-label");
         taskContent.addComponent(titleField,"task-title-field");
         taskContent.addComponent(new Label("Answer"), "task-answer");
-        Button sendBtn = new Button("Save");
         taskContent.addComponent(sendBtn,"task-button1");
 
         HorizontalLayout navigationPanel = new HorizontalLayout();
-        Button prevBtn = new Button("prev");
-        Button nextBtn = new Button("next");
+
         navigationPanel.addComponent(prevBtn);
         navigationPanel.addComponent(nextBtn);
         taskContent.addComponent(navigationPanel,"task-button2");
@@ -105,8 +111,13 @@ public class TaskView extends VerticalLayout implements View {
         addComponent(taskContent);
         setComponentAlignment(taskContent, Alignment.TOP_CENTER);
 
+        Answer alreadySavedAnswer = answerGateway.findAnswerDetails(tracks.get(currentTrack).getId(),1L);
 
-//      TODO dodac akcje do buttonow
+        if (alreadySavedAnswer != null && alreadySavedAnswer.getId() != null) {
+            titleField.setValue(alreadySavedAnswer.getAnsweredTitle());
+            artistField.setValue(alreadySavedAnswer.getAnsweredArtist());
+        }
+
         sendBtn.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
@@ -114,11 +125,15 @@ public class TaskView extends VerticalLayout implements View {
 
                 answer.setAnsweredTitle(titleField.getValue());
                 answer.setAnsweredArtist(artistField.getValue());
-                answer.setAnswerTime("");
+
+                if (tipFirstText.getValue() != "") {
+                    answer.setAnswerTime("10");
+                }
                 answer.setTrackId(tracks.get(currentTrack).getId());
                 answer.setUserId(1L);
 
                 answerGateway.saveAnswer(answer);
+                sendBtn.setCaption("Saved");
             }
         });
 
@@ -142,6 +157,15 @@ public class TaskView extends VerticalLayout implements View {
 
                     clearTips();
                     clearForm();
+
+                    Answer alreadySavedAnswer = answerGateway.findAnswerDetails(tracks.get(currentTrack).getId(),1L);
+
+                    if (alreadySavedAnswer != null && alreadySavedAnswer.getId() != null) {
+                        titleField.setValue(alreadySavedAnswer.getAnsweredTitle());
+                        artistField.setValue(alreadySavedAnswer.getAnsweredArtist());
+                    }
+
+                    countLbl.setValue(String.valueOf(currentTrack+1) + " / " + tracksCount);
                 }
             }
         });
@@ -169,6 +193,15 @@ public class TaskView extends VerticalLayout implements View {
 
                     clearTips();
                     clearForm();
+
+                    Answer alreadySavedAnswer = answerGateway.findAnswerDetails(tracks.get(currentTrack).getId(),1L);
+
+                    if (alreadySavedAnswer != null && alreadySavedAnswer.getId() != null) {
+                        titleField.setValue(alreadySavedAnswer.getAnsweredTitle());
+                        artistField.setValue(alreadySavedAnswer.getAnsweredArtist());
+                    }
+
+                    countLbl.setValue(String.valueOf(currentTrack+1) + " / " + tracksCount);
                 }
             }
         });
@@ -177,7 +210,8 @@ public class TaskView extends VerticalLayout implements View {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
                 tipFirstText.setValue(tracks.get(currentTrack).getTipOne());
-                tipSecondBtn.setVisible(true);
+//                artistField.setValue(tracks.get(currentTrack).getTipOne());
+//                tipSecondBtn.setVisible(true);
             }
         });
 
@@ -199,5 +233,6 @@ public class TaskView extends VerticalLayout implements View {
     private void clearForm(){
         titleField.setValue("");
         artistField.setValue("");
+        sendBtn.setCaption("Save");
     }
 }
