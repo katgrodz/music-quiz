@@ -26,6 +26,7 @@ import java.util.List;
 @ComponentScan
 public class Application {
 
+    FromFileDto fromFileDto;
     List<Track> trackList;
     String fileName = "C:\\Development\\projects\\simplequiz\\datafile20180101.txt";
 
