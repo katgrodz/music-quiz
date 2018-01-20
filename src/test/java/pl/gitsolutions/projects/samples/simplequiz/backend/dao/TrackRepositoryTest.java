@@ -29,13 +29,13 @@ public class TrackRepositoryTest {
 
     @Test
     public void getTrackByIdShouldReturnOneResult() {
-        Track result = repository.getTrackById(101L);
+        Track result = repository.getTrackById(1001L);
 
         Long actualTrackId = result.getId();
         Long actualQuizId = result.getQuizId();
         Long actualTaskId = result.getTaskId();
 
-        Assert.assertEquals("101", result.getId().toString());
+        Assert.assertEquals("1001", result.getId().toString());
         Assert.assertEquals("Heart Shaped Box", result.getTrackTitle());
         Assert.assertEquals("Nirvana", result.getTrackArtist());
         Assert.assertEquals("In Utero", result.getAlbumTitle());
@@ -52,7 +52,7 @@ public class TrackRepositoryTest {
 
     @Test
     public void getTrackByIdShouldReturnNull() {
-        Track result = repository.getTrackById(112L);
+        Track result = repository.getTrackById(1012L);
 
         Assert.assertNull(result);
     }
@@ -83,9 +83,9 @@ public class TrackRepositoryTest {
         String newAlbum = "new album";
         int newYear = 1999;
 
-        repository.updateTrackInfo(newTitle, newArtist, newAlbum, newYear,110L);
+        repository.updateTrackInfo(newTitle, newArtist, newAlbum, newYear,1010L);
 
-        Track updatedTrack = repository.getTrackById(110L);
+        Track updatedTrack = repository.getTrackById(1010L);
 
         Assert.assertEquals(newTitle, updatedTrack.getTrackTitle());
         Assert.assertEquals(newArtist, updatedTrack.getTrackArtist());
@@ -101,9 +101,9 @@ public class TrackRepositoryTest {
         String newTrackUrl = "new track url";
         String newWikiUrl = "new wiki url";
 
-        repository.updateTrackUrls(newTrackUrl, newWikiUrl, 110L);
+        repository.updateTrackUrls(newTrackUrl, newWikiUrl, 1010L);
 
-        Track updatedTrack = repository.getTrackById(110L);
+        Track updatedTrack = repository.getTrackById(1010L);
 
         Assert.assertEquals("Rainbow in the Dark", updatedTrack.getTrackTitle());
         Assert.assertEquals(newTrackUrl, updatedTrack.getTrackUrl());
@@ -118,9 +118,9 @@ public class TrackRepositoryTest {
         String newTipOne = "new track url";
         String newTipTwo = "new wiki url";
 
-        repository.updateTrackTips(newLyricsStart,newTipOne,newTipTwo,110L);
+        repository.updateTrackTips(newLyricsStart,newTipOne,newTipTwo,1010L);
 
-        Track updatedTrack = repository.getTrackById(110L);
+        Track updatedTrack = repository.getTrackById(1010L);
 
         Assert.assertEquals("Rainbow in the Dark", updatedTrack.getTrackTitle());
         Assert.assertEquals("track url", updatedTrack.getTrackUrl());
