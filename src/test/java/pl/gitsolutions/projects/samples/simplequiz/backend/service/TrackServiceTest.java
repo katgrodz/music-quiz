@@ -46,7 +46,7 @@ public class TrackServiceTest {
 
     @Test
     public void trackDetails() {
-        Track result = trackService.trackDetails(103L);
+        Track result = trackService.trackDetails(1003L);
         String expectedTitle = "Enter Sandman";
 
         Assert.assertEquals(expectedTitle, result.getTrackTitle());

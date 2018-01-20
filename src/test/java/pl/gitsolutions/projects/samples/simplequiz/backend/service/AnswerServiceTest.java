@@ -45,7 +45,7 @@ public class AnswerServiceTest {
     @Test
     public void saveAnswer(){
 
-        Answer answer = answerService.findAnswerDetails(109L,1L);
+        Answer answer = answerService.findAnswerDetails(1009L,1L);
 
         Assert.assertEquals("title",answer.getAnsweredTitle());
 
@@ -53,12 +53,12 @@ public class AnswerServiceTest {
         newAnswer.setAnsweredTitle("new title");
         newAnswer.setAnsweredArtist("new artist");
 //        newAnswer.setAnswerTime("new time");
-        newAnswer.setTrackId(109L);
+        newAnswer.setTrackId(1009L);
         newAnswer.setUserId(1L);
 
         answerService.saveAnswer(newAnswer);
 
-        Answer updatedAnswer = answerService.findAnswerDetails(109L,1L);
+        Answer updatedAnswer = answerService.findAnswerDetails(1009L,1L);
 
         Assert.assertEquals("new title",updatedAnswer.getAnsweredTitle());
 

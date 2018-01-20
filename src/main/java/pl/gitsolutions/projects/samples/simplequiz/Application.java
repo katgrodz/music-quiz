@@ -24,7 +24,7 @@ import java.util.List;
 public class Application {
 
     List<Track> trackList;
-    String fileName = "C:\\Development\\projects\\simplequiz\\datafile.txt";
+    String fileName = "C:\\Development\\projects\\simplequiz\\datafile20180101.txt";
 //    String fileName = "classpath:datafile.txt";
 
     public static void main(String[] args) {
