@@ -27,7 +27,7 @@ public class AnswerRepositoryTest {
 
     @Test
     public void getAllByTrackIdShouldReturnList() {
-        List<Answer> result = repository.getAllByTrackId(1001L);
+        List<Answer> result = repository.getAllByTrackId(101L);
         int expectedSize = 3;
 
         Assert.assertEquals(expectedSize, result.size());
@@ -35,7 +35,7 @@ public class AnswerRepositoryTest {
 
     @Test
     public void getAllByTrackIdShouldReturnEmptyList() {
-        List<Answer> result = repository.getAllByTrackId(1000L);
+        List<Answer> result = repository.getAllByTrackId(100L);
         int expectedSize = 0;
 
         Assert.assertEquals(expectedSize, result.size());
@@ -43,14 +43,14 @@ public class AnswerRepositoryTest {
 
     @Test
     public void getAnswerByTrackIdAndUserIdShouldReturnSingleResult() {
-        Answer result = repository.getAnswerByTrackIdAndUserId(1001L,1L);
+        Answer result = repository.getAnswerByTrackIdAndUserId(101L,1L);
 
         Assert.assertNotNull(result);
     }
 
     @Test
     public void getAnswerByTrackIdAndUserIdShouldReturnNothing() {
-        Answer result = repository.getAnswerByTrackIdAndUserId(1000L,1L);
+        Answer result = repository.getAnswerByTrackIdAndUserId(100L,1L);
 
         Assert.assertNull(result);
     }
@@ -74,7 +74,7 @@ public class AnswerRepositoryTest {
 
     @Test
     public void updateAnswer(){
-        Answer oldAnswer = repository.getAnswerByTrackIdAndUserId(1001L, 1L);
+        Answer oldAnswer = repository.getAnswerByTrackIdAndUserId(101L, 1L);
         Assert.assertEquals("title", oldAnswer.getAnsweredTitle());
         Assert.assertEquals("artist", oldAnswer.getAnsweredArtist());
         Assert.assertEquals("00:24:124", oldAnswer.getAnswerTime());
@@ -87,7 +87,7 @@ public class AnswerRepositoryTest {
 
         repository.updateAnswerById(newAnswer.getAnsweredArtist(), newAnswer.getAnsweredTitle(), newAnswer.getAnswerTime(), newAnswer.getId());
 
-        Answer updatedAnswer = repository.getAnswerByTrackIdAndUserId(1001L, 1L);
+        Answer updatedAnswer = repository.getAnswerByTrackIdAndUserId(101L, 1L);
         Assert.assertEquals(newAnswer.getAnsweredArtist(),updatedAnswer.getAnsweredArtist());
         Assert.assertEquals(newAnswer.getAnsweredTitle(),updatedAnswer.getAnsweredTitle());
 //        Assert.assertEquals(newAnswer.getAnswerTime(),updatedAnswer.getAnswerTime());
