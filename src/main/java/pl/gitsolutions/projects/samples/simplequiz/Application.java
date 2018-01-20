@@ -27,7 +27,10 @@ import java.util.List;
 public class Application {
 
     FromFileDto fromFileDto;
-    String fileName = "C:\\Development\\projects\\simplequiz\\datafile.txt";
+
+    List<Track> trackList;
+    String fileName = "C:\\Development\\projects\\simplequiz\\datafile20180101.txt";
+
 //    String fileName = "classpath:datafile.txt";
 
     public static void main(String[] args) {

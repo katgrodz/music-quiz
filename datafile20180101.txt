@@ -20,6 +20,6 @@
 19	1	1	19	Maneater	Hall & Oates	H2O	1982	H & O	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/019.mp3	https://en.wikipedia.org/wiki/Maneater_(Hall_%26_Oates_song)
 20	1	1	20	Oh L'amour	Erasure	Wonderland	1986	E	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/015.mp3	https://en.wikipedia.org/wiki/Oh_L%27amour
 --------------------------------------
-Zadanie 1	polecenie zadania 1
+1	1	polecenie zadania 1
 --------------------------------------
-Quiz	informacje o quizie
+1	informacje o quizie
