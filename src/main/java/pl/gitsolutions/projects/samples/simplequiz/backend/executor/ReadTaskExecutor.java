@@ -28,4 +28,8 @@ public class ReadTaskExecutor{
         return taskRepository.findAll();
     }
 
+    public Integer countTasksInQuiz(Long quizId) {
+        return taskRepository.countTaskByQuizId(quizId);
+    }
+
 }
