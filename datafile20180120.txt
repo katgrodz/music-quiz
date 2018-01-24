@@ -1,0 +1,29 @@
+24
+1	1	1	1	There Must Be An Angel	Eurythmics	album	1980	E	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/001.mp3	www
+2	1	1	2	Boys of Summer	Don Henley	album	1980	D H	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/002.mp3	www
+3	1	1	3	Come Back and Stay	Paul Young	album	1980	P Y	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/003.mp3	www
+4	1	1	4	Show Me Heaven	Maria McKee	album	1980	M M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/004.mp3	www
+5	1	1	5	Leave a Light On	Belinda Carlisle	album	1980	B C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/005.mp3	www
+6	1	1	6	Black Velvet	Alannah Myles	album	1980	A M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/006.mp3	www
+7	1	1	7	You Can Call Me Al	Paul Simon	album	1980	P S	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/007.mp3	www
+8	1	1	8	When the Rain Begins to Fall	Jermaine Jackson & Pia Zadora	album	1980	J J P Z	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/008.mp3	www
+9	1	1	9	The Promise You Made	Robin Cock	album	1980	R C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/009.mp3	www
+10	1	1	10	If I was	Midge Ure	album	1980	M U	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/010.mp3	www
+11	1	1	11	To France	Mike Oldfield & Maggie Reilly	album	1980	M O M R	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/011.mp3	www
+12	1	1	12	Baker Street	Gerry Rafferty	album	1980	G R	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/012.mp3	www
+13	1	1	13	A Horse With No Name	America	album	1980	A	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/013.mp3	www
+14	1	1	14	Eternal Flame	The Bangles	album	1980	T B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/014.mp3	www
+15	1	1	15	What Is Love	Howard Jones	album	1980	H J	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/0015.mp3	www
+16	1	1	16	High On Emotion	Chris De Burgh	album	1980	C D B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/016.mp3	www
+17	1	1	17	The Look Of Love	ABC	album	1980	A	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/017.mp3	www
+18	1	1	18	Nights In White Satin	The Moody Blues	album	1980	T M B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/018.mp3	www
+19	1	1	19	Love Is All Around	Wet Wet Wet	album	1980	W	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/019.mp3	www
+20	1	1	20	Sing It Back	Moloko	album	1980	M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/020.mp3	www
+21	1	1	21	7 Seconds	Youssou N'Dour	album	1980	Y N	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/021.mp3	www
+22	1	1	22	Summer Son	Texas	album	1980	T	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/022.mp3	www
+23	1	1	23	Save Tonight	Eagle-Eye Cherry	album	1980	E E C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/023.mp3	www
+24	1	1	24	When Your Heart Is Weak	Cock Robin	album	1980	C R	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/024.mp3	www
+--------------------------------------
+1	1	zgadnij utwór i artystę
+--------------------------------------
+1	informacje o quizie
