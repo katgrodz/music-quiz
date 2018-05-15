@@ -21,7 +21,7 @@ public class AboutView extends VerticalLayout implements View {
 
         aboutContent.addComponent(
                 new Label(VaadinIcons.SMILEY_O.getHtml()
-                        + "  :) ", ContentMode.HTML), "info");
+                        + "  katgrodz ", ContentMode.HTML), "info");
 
         setSizeFull();
         setMargin(false);

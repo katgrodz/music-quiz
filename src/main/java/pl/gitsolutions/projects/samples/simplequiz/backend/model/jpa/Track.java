@@ -2,21 +2,14 @@ package pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**

@@ -1,6 +1,5 @@
 package pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;

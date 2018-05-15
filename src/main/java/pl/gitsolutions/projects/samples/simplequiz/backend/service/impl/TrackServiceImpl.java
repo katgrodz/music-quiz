@@ -2,13 +2,10 @@ package pl.gitsolutions.projects.samples.simplequiz.backend.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
 import pl.gitsolutions.projects.samples.simplequiz.backend.executor.ReadAnswerExecutor;
 import pl.gitsolutions.projects.samples.simplequiz.backend.executor.ReadTrackExecutor;
 import pl.gitsolutions.projects.samples.simplequiz.backend.executor.UpdateTrackExecutor;
-import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Track;
-import pl.gitsolutions.projects.samples.simplequiz.backend.service.AnswerService;
 import pl.gitsolutions.projects.samples.simplequiz.backend.service.TrackService;
 
 import java.util.ArrayList;

@@ -1,11 +1,8 @@
 package pl.gitsolutions.projects.samples.simplequiz.backend.integration;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Track;
 
 import java.util.List;

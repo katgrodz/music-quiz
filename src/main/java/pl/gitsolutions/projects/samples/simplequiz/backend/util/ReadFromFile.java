@@ -20,10 +20,10 @@ public class ReadFromFile {
 
         FromFileDto result = new FromFileDto();
 
-        List<Track> listOfTracks = new ArrayList<Track>();
-        List<Task> listOfTasks = new ArrayList<Task>();
+        List<Track> listOfTracks = new ArrayList<>();
+        List<Task> listOfTasks = new ArrayList<>();
         List<Quiz> listOfQuizes = new ArrayList<>();
-        List<String> fromFile = new ArrayList<String>();
+        List<String> fromFile = new ArrayList<>();
 
         FileReader fr = new FileReader(fileName);
         fromFile = ReadFromFile.readEachLine(fr);
@@ -36,7 +36,7 @@ public class ReadFromFile {
         numberOfTracks = Integer.valueOf(fromFile.get(0));
 
         for (int i=1; i<=numberOfTracks; i++){
-            List<Integer> tabList = new ArrayList<Integer>();
+            List<Integer> tabList = new ArrayList<>();
 
             for (int j=0; j<fromFile.get(i).length(); j++) {
                 if (fromFile.get(i).charAt(j) == 0x009) {
@@ -69,7 +69,7 @@ public class ReadFromFile {
         int taskStart = lastReadLineIndex + 2;
 
         for (int i = taskStart; i < taskStart + numberOfTasks; i++) {
-            List<Integer> tabList = new ArrayList<Integer>();
+            List<Integer> tabList = new ArrayList<>();
 
             for (int j=0; j<fromFile.get(i).length(); j++) {
                 if (fromFile.get(i).charAt(j) == 0x009) {
@@ -93,7 +93,7 @@ public class ReadFromFile {
         int quizStart = lastReadLineIndex + 2;
 
         for (int i = quizStart; i < fromFile.size(); i++) {
-            List<Integer> tabList = new ArrayList<Integer>();
+            List<Integer> tabList = new ArrayList<>();
 
             for (int j=0; j<fromFile.get(i).length(); j++) {
                 if (fromFile.get(i).charAt(j) == 0x009) {
@@ -119,7 +119,7 @@ public class ReadFromFile {
 
     public static List<String> readEachLine(FileReader fr) throws IOException {
 
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         BufferedReader br = new BufferedReader(fr);
         for (String line; (line = br.readLine()) != null;) {
             result.add(line);

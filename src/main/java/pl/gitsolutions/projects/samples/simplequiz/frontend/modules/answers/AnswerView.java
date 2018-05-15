@@ -1,11 +1,8 @@
 package pl.gitsolutions.projects.samples.simplequiz.frontend.modules.answers;
 
-import com.vaadin.data.provider.DataProvider;
 import com.vaadin.navigator.View;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
-import org.springframework.beans.factory.annotation.Autowired;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
 import pl.gitsolutions.projects.samples.simplequiz.backend.integration.AnswerGateway;
 

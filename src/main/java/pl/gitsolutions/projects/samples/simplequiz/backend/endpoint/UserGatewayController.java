@@ -1,12 +1,8 @@
 package pl.gitsolutions.projects.samples.simplequiz.backend.endpoint;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
-import pl.gitsolutions.projects.samples.simplequiz.backend.integration.AnswerGateway;
 import pl.gitsolutions.projects.samples.simplequiz.backend.integration.UserGateway;
-import pl.gitsolutions.projects.samples.simplequiz.backend.service.AnswerService;
 import pl.gitsolutions.projects.samples.simplequiz.backend.service.UserService;
 
 import java.util.List;

@@ -3,12 +3,9 @@ package pl.gitsolutions.projects.samples.simplequiz.backend.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.querydsl.QueryDslPredicateExecutor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
