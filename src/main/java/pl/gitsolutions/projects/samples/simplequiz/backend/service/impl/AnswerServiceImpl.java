@@ -71,7 +71,8 @@ public class AnswerServiceImpl implements AnswerService {
 
             resultList.add(singleResult);
 
-        }   
+        }
+
         return resultList.stream()
                 .sorted(Comparator.comparing(TrackInfoDto::getTrackId))
                 .collect(Collectors.toList());
