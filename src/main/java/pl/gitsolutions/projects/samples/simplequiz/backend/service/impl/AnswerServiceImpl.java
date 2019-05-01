@@ -3,18 +3,18 @@ package pl.gitsolutions.projects.samples.simplequiz.backend.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.gitsolutions.projects.samples.simplequiz.backend.dto.TrackInfoDto;
-import pl.gitsolutions.projects.samples.simplequiz.backend.executor.CreateAnswerExecutor;
-import pl.gitsolutions.projects.samples.simplequiz.backend.executor.DeleteAnswerExecutor;
-import pl.gitsolutions.projects.samples.simplequiz.backend.executor.ReadAnswerExecutor;
-import pl.gitsolutions.projects.samples.simplequiz.backend.executor.ReadTrackExecutor;
-import pl.gitsolutions.projects.samples.simplequiz.backend.executor.UpdateAnswerExecutor;
+import pl.gitsolutions.projects.samples.simplequiz.backend.executor.*;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Answer;
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Track;
 import pl.gitsolutions.projects.samples.simplequiz.backend.service.AnswerService;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Objects.nonNull;
 
 /**
  * Created by katgr on 19.11.2017.
@@ -45,34 +45,36 @@ public class AnswerServiceImpl implements AnswerService {
         List<Answer> answerList = readAnswerExecutor.findAllAnswersForUser(userId);
 
         for (Answer answer : answerList) {
-            TrackInfoDto singleResult = new TrackInfoDto();
-
-            singleResult.setAnsweredArtist(answer.getAnsweredArtist());
-            singleResult.setAnsweredTitle(answer.getAnsweredTitle());
-//            singleResult.setAnswerTime(answer.getAnswerTime());
-            singleResult.setId(answer.getId());
-            singleResult.setTrackId(answer.getTrackId());
-
             Long trackId = answer.getTrackId();
 
             Track trackDetails = readTrackExecutor.getTrackDetails(trackId);
 
-//            singleResult.setQuizId(trackDetails.getQuizId());
-            singleResult.setTaskId(trackDetails.getTaskId());
-            singleResult.setTitle(trackDetails.getTrackTitle());
-            singleResult.setArtist(trackDetails.getTrackArtist());
-            singleResult.setAlbum(trackDetails.getAlbumTitle());
-            singleResult.setYear(trackDetails.getYear());
-//            singleResult.setTipOne(trackDetails.getTipOne());
-//            singleResult.setTipTwo(trackDetails.getTipTwo());
-//            singleResult.setLyricsStart(trackDetails.getLyricsStart());
-//            singleResult.setTrackUrl(trackDetails.getTrackUrl());
-//            singleResult.setWikiUrl(trackDetails.getWikiUrl());
+            TrackInfoDto singleResult = TrackInfoDto.builder()
+                    .answeredArtist(answer.getAnsweredArtist())
+                    .answeredTitle(answer.getAnsweredTitle())
+                    .answerTime(answer.getAnswerTime())
+                    .id(answer.getId())
+                    .trackId(answer.getTrackId())
+//                    .quizId()
+                    .taskId(trackDetails.getTaskId())
+                    .title(trackDetails.getTrackTitle())
+                    .artist(trackDetails.getTrackArtist())
+                    .album(trackDetails.getAlbumTitle())
+                    .year(trackDetails.getYear())
+//                    .tipOne(trackDetails.getTipOne())
+//                    .tipTwo(trackDetails.getTipTwo())
+//                    .lyricsStart(trackDetails.getLyricsStart())
+//                    .trackUrl(trackDetails.getTrackUrl())
+//                    .wikiUrl(trackDetails.getWikiUrl())
+                    .isTipUsed(answer.getTipUsed())
+                    .build();
 
             resultList.add(singleResult);
 
-        }
-        return resultList;
+        } 
+        return resultList.stream()
+                .sorted(Comparator.comparing(TrackInfoDto::getTrackId))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -82,7 +84,7 @@ public class AnswerServiceImpl implements AnswerService {
         List<TrackInfoDto> allAnswers = findMyAnswers(userId);
 
         for (TrackInfoDto answer : allAnswers) {
-            if (answer.getQuizId() == quizId) {
+            if (quizId.equals(answer.getQuizId())) {
                 resultList.add(answer);
             }
         }
@@ -93,8 +95,7 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     @Transactional
     public Answer findAnswerDetails(Long trackId, Long userId) {
-        Answer result = readAnswerExecutor.findAnswerDetails(trackId, userId);
-        return result;
+        return readAnswerExecutor.findAnswerDetails(trackId, userId);
     }
 
     @Override
@@ -102,7 +103,7 @@ public class AnswerServiceImpl implements AnswerService {
 
         Answer savedAnswer = readAnswerExecutor.findAnswerDetails(answer.getTrackId(), answer.getUserId());
 
-        if(savedAnswer != null) {
+        if (nonNull(savedAnswer)) {
             answer.setId(savedAnswer.getId());
             updateAnswerExecutor.updateAnswer(answer);
         } else {

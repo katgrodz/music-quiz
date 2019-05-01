@@ -39,6 +39,9 @@ public class Answer extends BaseEntity {
     @Column(name = "USER_ID")
     private Long userId;
 
+    @Column(name = "TIP_USED")
+    private Boolean tipUsed;
+
     public Long getId() {
         return id;
     }
@@ -85,5 +88,13 @@ public class Answer extends BaseEntity {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Boolean getTipUsed() {
+        return tipUsed;
+    }
+
+    public void setTipUsed(Boolean tipUsed) {
+        this.tipUsed = tipUsed;
     }
 }

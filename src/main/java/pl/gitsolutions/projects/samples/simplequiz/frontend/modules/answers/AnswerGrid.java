@@ -17,9 +17,11 @@ public class AnswerGrid extends Grid<TrackInfoDto>{
         addColumn(TrackInfoDto::getTaskId, new NumberRenderer()).setCaption("Task no").setMaximumWidth(60.0);
         addColumn(TrackInfoDto::getTrackId, new NumberRenderer()).setCaption("Track no").setMaximumWidth(60.0);
         addColumn(TrackInfoDto::getAnsweredArtist).setCaption("Answered artist");
-        addColumn(TrackInfoDto::getAnsweredTitle).setCaption("Answered title");
         addColumn(TrackInfoDto::getArtist).setCaption("Correct artist");
+        addColumn(TrackInfoDto::getAnsweredTitle).setCaption("Answered title");
         addColumn(TrackInfoDto::getTitle).setCaption("Correct title");
+        addColumn(TrackInfoDto::getIsTipUsed).setCaption("Tip was used");
+        addColumn(TrackInfoDto::getAnswerTime).setCaption("Answer time");
         addColumn(TrackInfoDto::getYear, new NumberRenderer()).setCaption("Year");
         addColumn(TrackInfoDto::getAlbum).setCaption("Album name");
     }

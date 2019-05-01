@@ -1,0 +1,57 @@
+52
+1	1	1	1	Bette Davis Eyes	Kim Carnes	Mistaken Identity	1981	Artist: K C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/001.mp3	https://en.wikipedia.org/wiki/Bette_Davis_Eyes
+2	1	1	2	Would I Lie to You?	Charles & Eddie	Duophonic	1992	Artist: C & E	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/002.mp3	https://en.wikipedia.org/wiki/Would_I_Lie_to_You%3F_(Charles_%26_Eddie_song)
+3	1	1	3	Ain't No Mountain High Enough	Marvin Gaye & Tammi Terrell	United	1967	Artist: M G & T T	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/003.mp3	https://en.wikipedia.org/wiki/Ain%27t_No_Mountain_High_Enough
+4	1	1	4	Two Princesses	Spin Doctors	Pocket Full of Kryptonite	1993	Artist: S D	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/004.mp3	https://en.wikipedia.org/wiki/Two_Princes
+5	1	1	5	I've Seen That Face Before (Libertango)	Grace Jones	Nightclubbing	1981	Artist: G J	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/005.mp3	https://en.wikipedia.org/wiki/I%27ve_Seen_That_Face_Before_(Libertango)
+6	1	1	6	Silent Running	Mike and the Mechanics	Mike + The Mechanics	1985	Artist: M A T M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/006.mp3	https://en.wikipedia.org/wiki/Silent_Running_(On_Dangerous_Ground)
+7	1	1	7	Stop!	Sam Brown	Stop!	1988	Artist: S B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/007.mp3	https://en.wikipedia.org/wiki/Stop!_(Sam_Brown_song)
+8	1	1	8	Gimme All Your Lovin'	ZZ Top	Eliminator	1983	Artist: Z T	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/008.mp3	https://en.wikipedia.org/wiki/Gimme_All_Your_Lovin%27
+9	1	1	9	Dolce Vita	Ryan Paris	Dolce Vita	1983	Artist: R P	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/009.mp3	https://en.wikipedia.org/wiki/Dolce_Vita_(song)
+10	1	1	10	Shy Guy	Diana King	Tougher Than Love	1995	Artist: D K	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/010.mp3	https://en.wikipedia.org/wiki/Shy_Guy
+11	1	1	11	Weather With You	Crowded House	Woodface	1992	Artist: C H	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/011.mp3	https://en.wikipedia.org/wiki/Weather_with_You
+12	1	1	12	My Sweet Lord	George Harrison	All Things Must Pass	1970	Artist: G H	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/012.mp3	https://en.wikipedia.org/wiki/My_Sweet_Lord
+13	1	1	13	If You Want My Love	Cheap Trick	One on One	1982	Artist: C T	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/013.mp3	https://en.wikipedia.org/wiki/If_You_Want_My_Love
+14	1	1	14	Slave to Love	Bryan Ferry	Boys and Girls	1985	Artist: B F	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/014.mp3	https://en.wikipedia.org/wiki/Slave_to_Love
+15	1	1	15	Enola Gay	Orchestral Manoeuvres in the Dark	Organisation	1980	too easy to give first letters ;)	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/015.mp3	https://en.wikipedia.org/wiki/Enola_Gay_(song)
+16	1	1	16	Baba O'Riley	The Who	Who's Next	1971	Artist: T W	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/016.mp3	https://en.wikipedia.org/wiki/Baba_O%27Riley
+17	1	1	17	Hot Stuff	Donna Summer	Bad Girls	1979	Artist: D S	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/017.mp3	https://en.wikipedia.org/wiki/Hot_Stuff_(Donna_Summer_song)
+18	1	1	18	Eyes Without a Face	Billy Idol	Rebel Yell	1984	Artist: B I	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/018.mp3	https://en.wikipedia.org/wiki/Eyes_Without_a_Face_(song)
+19	1	1	19	Maneater	Hall & Oates	H2O	1982	Artist: H & O	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/019.mp3	https://en.wikipedia.org/wiki/Maneater_(Hall_%26_Oates_song)
+20	1	1	20	Oh L'amour	Erasure	Wonderland	1986	Artist: E	secondTip	1023	http://kropisz.jezuici.pl/audio/20180101/020.mp3	https://en.wikipedia.org/wiki/Oh_L%27amour
+21	1	1	21	There Must Be An Angel	Eurythmics	Be Yourself Tonight	1985	Artist: E	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/001.mp3	www
+22	1	1	22	Boys of Summer	Don Henley	Building the Perfect Beast	1984	Artist: D H	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/002.mp3	www
+23	1	1	23	Come Back and Stay	Paul Young	No Parlez	1983	Artist: P Y	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/003.mp3	www
+24	1	1	24	Show Me Heaven	Maria McKee	Days of Thunder	1990	Artist: M M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/004.mp3	www
+25	1	1	25	Leave a Light On	Belinda Carlisle	Runaway Horses	1989	Artist: B C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/005.mp3	www
+26	1	1	26	Black Velvet	Alannah Myles	Alannah Myles	1989	Artist: A M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/006.mp3	www
+27	1	1	27	You Can Call Me Al	Paul Simon	Graceland	1986	Artist: P S	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/007.mp3	www
+28	1	1	28	When the Rain Begins to Fall	Jermaine Jackson & Pia Zadora	Voyage of the Rock Aliens	1984	Artist: J J P Z	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/008.mp3	www
+29	1	1	29	The Promise You Made	Cock Robin	Cock Robin	1985	Artist: R C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/009.mp3	www
+30	1	1	30	If I was	Midge Ure	The Gift	1985	Artist: M U	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/010.mp3	www
+31	1	1	31	To France	Mike Oldfield & Maggie Reilly	Discovery	1984	Artist: M O M R	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/011.mp3	www
+32	1	1	32	Baker Street	Gerry Rafferty	City to City	1978	Artist: G R	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/012.mp3	www
+33	1	1	33	A Horse With No Name	America	America	1971	Artist: A	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/013.mp3	www
+34	1	1	34	Eternal Flame	The Bangles	Everything	1988	Artist: T B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/014.mp3	www
+35	1	1	35	What Is Love	Howard Jones	Human's Lib	1984	Artist: H J	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/015.mp3	www
+36	1	1	36	High On Emotion	Chris De Burgh	Man on the Line	1984	Artist: C D B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/016.mp3	www
+37	1	1	37	The Look Of Love	ABC	The Lexicon of Love	1982	Artist: A	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/017.mp3	www
+38	1	1	38	Nights In White Satin	The Moody Blues	Days of Future Passed	1967	Artist: T M B	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/018.mp3	www
+39	1	1	39	Love Is All Around	Wet Wet Wet	Picture This	1995	Artist: W	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/019.mp3	www
+40	1	1	40	Sing It Back	Moloko	I Am Not a Doctor	1998	Artist: M	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/020.mp3	www
+41	1	1	41	7 Seconds	Youssou N'Dour	The Guide	1994	Artist: Y N	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/021.mp3	www
+42	1	1	42	Summer Son	Texas	The Hush	1999	Artist: T	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/022.mp3	www
+43	1	1	43	Save Tonight	Eagle-Eye Cherry	Desireless	1997	Artist: E E C	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/023.mp3	www
+44	1	1	44	When Your Heart Is Weak	Cock Robin	Cock Robin	1985	Artist: C R	secondTip	1023	http://kropisz.jezuici.pl/audio/20180120/024.mp3	www
+45	1	1	45	Call Me	Blondie	American Gigolo	1980	Artist: B	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/001.mp3	www
+46	1	1	46	Fade To Grey	Visage	Visage	1980	Artist: V	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/002.mp3	www
+47	1	1	47	It's Raining Again	Supertramp	...Famous Last Words...	1982	Artist: S	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/003.mp3	www
+48	1	1	48	Forever	Kiss	Hot in the Shade	1989	Artist: K	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/004.mp3	www
+49	1	1	49	Seven Wonders	Fleetwood Mac	Tango in the Night	1987	Artist: F M	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/005.mp3	www
+50	1	1	50	Words Don't Come Easy	F.R. David	Words	1982	Artist: F D	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/006.mp3	www
+51	1	1	51	You Get What You Give	New Radicals	Maybe You've Been Brainwashed Too	1998	Artist: N R	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/007.mp3	www
+52	1	1	52	Man on the Silver Mountain	Rainbow	Ritchie Blackmore's Rainbow	1975	Artist: R	secondTip	1023	http://kropisz.jezuici.pl/audio/20190501/008.mp3	www
+--------------------------------------
+1	1	polecenie zadania 1
+--------------------------------------
+1	informacje o quizie

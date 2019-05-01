@@ -33,7 +33,7 @@ public class AnswerForm extends AnswerFormDesign {
 
     public void editAnswer(TrackInfoDto trackInfoDto) {
         if (trackInfoDto == null) {
-            trackInfoDto = new TrackInfoDto();
+            trackInfoDto = TrackInfoDto.builder().build();
         }
         currentTrack = trackInfoDto;
 

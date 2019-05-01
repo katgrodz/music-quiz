@@ -23,7 +23,7 @@ import javax.persistence.Table;
 public class Track extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TRACK_ID", nullable = false)
     private Long id;
 

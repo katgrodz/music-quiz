@@ -8,7 +8,6 @@ import pl.gitsolutions.projects.samples.simplequiz.backend.executor.UpdateTrackE
 import pl.gitsolutions.projects.samples.simplequiz.backend.model.jpa.Track;
 import pl.gitsolutions.projects.samples.simplequiz.backend.service.TrackService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,17 +45,17 @@ public class TrackServiceImpl implements TrackService {
         Long trackId = track.getId();
         Track oldTrack = readTrackExecutor.getTrackDetails(trackId);
 
-        if(track.getTrackTitle() != oldTrack.getTrackTitle() || track.getTrackArtist() != oldTrack.getTrackArtist() ||
+        if (track.getTrackTitle() != oldTrack.getTrackTitle() || track.getTrackArtist() != oldTrack.getTrackArtist() ||
                 track.getAlbumTitle() != oldTrack.getAlbumTitle() || track.getYear() != oldTrack.getYear()) {
             updateTrackExecutor.updateTrackInfo(track);
         }
 
-        if(track.getLyricsStart() != oldTrack.getLyricsStart() || track.getTipOne() != oldTrack.getTipOne() ||
+        if (track.getLyricsStart() != oldTrack.getLyricsStart() || track.getTipOne() != oldTrack.getTipOne() ||
                 track.getTipTwo() != oldTrack.getTipTwo()) {
             updateTrackExecutor.updateTrackTips(track);
         }
 
-        if(track.getTrackUrl() != oldTrack.getTrackUrl() || track.getWikiUrl() != oldTrack.getWikiUrl()) {
+        if (track.getTrackUrl() != oldTrack.getTrackUrl() || track.getWikiUrl() != oldTrack.getWikiUrl()) {
             updateTrackExecutor.updateTrackUrls(track);
         }
     }

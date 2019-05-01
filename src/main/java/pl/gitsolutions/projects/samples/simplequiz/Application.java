@@ -24,7 +24,7 @@ public class Application {
 
     FromFileDto fromFileDto;
 
-    String fileName = "datafile20180101.txt";
+    String fileName = "datafile20190501.txt";
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -38,7 +38,7 @@ public class Application {
                 fromFileDto = ReadFromFile.loadToDatabase(fileName);
                 quizRepo.save(fromFileDto.getQuizList());
                 taskRepo.save(fromFileDto.getTaskList());
-                trackRepo.save(fromFileDto.getTrackList());
+                fromFileDto.getTrackList().forEach(trackRepo::save);
             }
         };
     }
